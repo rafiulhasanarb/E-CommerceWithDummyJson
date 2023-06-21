@@ -15,6 +15,7 @@ class ProductTableViewCell: UITableViewCell {
     @IBOutlet weak var rateButton: UIButton!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var discountPriceLabel: UILabel!
+    @IBOutlet weak var afterdiscountPriceLabel: UILabel!
     @IBOutlet weak var stockLabel: UILabel!
     
     override func awakeFromNib() {
@@ -30,8 +31,11 @@ class ProductTableViewCell: UITableViewCell {
     func setupUI(product: Product) {
         productTitleLabel.text = product.title
         stockLabel.text = "Stock: \(product.stock)"
-        priceLabel.text = "Price: $\(product.price)"
+        priceLabel.text = "Regular Price: $\(product.price)"
+        let discontPrice = Double(product.price) - ((Double(product.price) * product.discountPercentage) / 100)
+        let rounded = round(discontPrice * 100) / 100.0
         discountPriceLabel.text = "Off: \(product.discountPercentage)%"
+        afterdiscountPriceLabel.text = "After Discount: $\(rounded)"
         rateButton.setTitle("\(product.rating)", for: .normal)
         guard let url = URL(string: product.thumbnail) else { return }
         productImageView.loadImage(from: url)

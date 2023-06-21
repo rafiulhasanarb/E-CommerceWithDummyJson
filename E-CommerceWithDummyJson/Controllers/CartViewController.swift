@@ -145,3 +145,119 @@ extension CartViewController: UITableViewDelegate {
         navigationController?.present(vc, animated: true)
     }
 }
+/*
+ var arrdata = [jsonstruct]()
+     var categorydata = [Categories]()
+     var imgdata = [Images]()
+     
+     var cartArray = [CartStruct]()
+     
+     @IBOutlet var cartTableView: UITableView!
+     
+     @IBOutlet var totalCount: UILabel!
+     @IBOutlet var subtotalPrice: UILabel!
+     @IBOutlet var shippingPrice: UILabel!
+     @IBOutlet var totalPrice: UILabel!
+     @IBOutlet var proceedBtn: UIButton!
+     
+     override func viewDidLoad() {
+         super.viewDidLoad()
+         
+         self.getCartData()
+         
+         let userDefaults = UserDefaults.standard
+         guard let data = userDefaults.array(forKey: "myArrayKey") as? [CartStruct] else { return }
+         cartArray = data
+         cartTableView.reloadData()
+     }
+     
+     func getCartData() {
+            let defaults = UserDefaults.standard
+            if let data = defaults.data(forKey: "cartt") {
+                cartArray = try! PropertyListDecoder().decode([CartStruct].self, from: data)
+                cartTableView.reloadData()
+            }
+        }
+     
+     func numberOfSections(in tableView: UITableView) -> Int {
+         return 1
+     }
+     
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+         return cartArray.count
+     }
+     
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+         let cell = tableView.dequeueReusableCell(withIdentifier: "CartCellTableViewCell", for: indexPath) as! CartCellTableViewCell
+ 
+         cell.cartImageView.downloadImage(from: cartArray[indexPath.row].cartItems.images.first?.src ?? "place_holder_image")
+
+         cell.productNameCart.text = cartArray[indexPath.row].cartItems.name
+         cell.prodductDescCart.text = cartArray[indexPath.row].cartItems.categories.first?.type
+         cell.productPriceCart.text = cartArray[indexPath.row].cartItems.price
+         
+         cell.addBtn.addTarget(self, action: #selector(add(sender:)), for: .touchUpInside)
+         cell.addBtn.tag = indexPath.row
+         
+         let cartQuantity = cartArray[indexPath.row].cartQuantity
+         cell.prodCount.text = "\(cartQuantity)"
+         
+         if cartQuantity >= 0 {
+             cell.subBtn.isUserInteractionEnabled = true;
+             cell.subBtn.addTarget(self, action: #selector(sub(sender:)), for: .touchUpInside)
+             cell.subBtn.tag = indexPath.row
+         } else {
+             cell.subBtn.isUserInteractionEnabled = false;
+         }
+         return cell
+     }
+     
+     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+         if editingStyle == .delete {
+             cartArray.remove(at: indexPath.row)
+             tableView.deleteRows(at: [indexPath], with: .automatic)
+             let userDefaults = UserDefaults.standard
+             userDefaults.set(cartArray, forKey: "myArrayKey")
+         }
+     }
+     
+     @objc func add(sender: UIButton){
+         if cartArray[sender.tag].cartQuantity >= 0 {
+             cartArray[sender.tag].cartQuantity += 1
+             cartTableView.reloadData()
+         }
+     }
+     
+     @objc func sub(sender: UIButton){
+         if cartArray[sender.tag].cartQuantity > 0 {
+             cartArray[sender.tag].cartQuantity -= 1
+             cartTableView.reloadData()
+         }
+     }
+ 
+ <! --- = -- >
+ Parse your cart data from UserDefaults according to "[CartStruct]"
+ Check and delete It.
+ Update after deletion to UserDefaults
+
+ Reload your TableView
+ 
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+      if editingStyle == .delete {
+          cartArray = self.updateCartItems(name: cartArray[indexPath.row].cartItems.name)
+          tableView.deleteRows(at: [indexPath], with: .fade)
+      }
+  }
+ 
+ Here, You need to check and delete:
+
+    func updateCartItems(name: String) -> [CartStruct] {
+         guard var cartItems = self.getCartData() else { return [] }
+         cartItems = cartItems.filter({ $0.cartItems.name != name })
+         if let updatedCart = try? PropertyListEncoder().encode(cartItems) {
+             UserDefaults.standard.set(updatedCart, forKey: "cartt")
+         }
+         UserDefaults.standard.set(cartItems.count, forKey: "CountAddedProducts")
+         return cartItems
+       }
+ */

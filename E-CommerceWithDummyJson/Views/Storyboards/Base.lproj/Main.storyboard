@@ -372,7 +372,7 @@
                                 </constraints>
                             </pageControl>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="AMf-aV-xbU">
-                                <rect key="frame" x="16" y="287" width="361" height="228"/>
+                                <rect key="frame" x="16" y="287" width="361" height="282.66666666666674"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fr-yn-fvH">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="21.666666666666668"/>
@@ -407,20 +407,32 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brand:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSj-DU-Mbp">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After Discount Price: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5l-K4-3lM">
                                         <rect key="frame" x="0.0" y="154" width="361" height="19.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fxb-ta-HBV">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rN0-Gd-aWy">
                                         <rect key="frame" x="0.0" y="181.33333333333331" width="361" height="19.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgi-ak-i8V">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brand:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSj-DU-Mbp">
                                         <rect key="frame" x="0.0" y="208.66666666666669" width="361" height="19.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fxb-ta-HBV">
+                                        <rect key="frame" x="0.0" y="236" width="361" height="19.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgi-ak-i8V">
+                                        <rect key="frame" x="0.0" y="263.33333333333337" width="361" height="19.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -478,6 +490,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="31G-n9-wvW"/>
                     <connections>
+                        <outlet property="afterDiscountlbl" destination="w5l-K4-3lM" id="Euv-as-eNA"/>
                         <outlet property="brandlbl" destination="dSj-DU-Mbp" id="hlU-FS-xgf"/>
                         <outlet property="categorylbl" destination="Fxb-ta-HBV" id="Aop-vs-aeU"/>
                         <outlet property="discountlbl" destination="Wy6-qK-gw6" id="Ibj-PJ-vh0"/>
@@ -486,6 +499,7 @@
                         <outlet property="productDescriplbl" destination="sfp-1w-oYB" id="iit-9t-Bbb"/>
                         <outlet property="productTitlelbl" destination="2fr-yn-fvH" id="QPU-SD-1Qc"/>
                         <outlet property="ratingButtonView" destination="ocX-3s-9nk" id="r8A-gJ-viE"/>
+                        <outlet property="savelbl" destination="rN0-Gd-aWy" id="RzR-7M-ImR"/>
                         <outlet property="sliderCollectionView" destination="KEV-YT-bGk" id="ejj-bX-vCT"/>
                         <outlet property="stocklbl" destination="fgi-ak-i8V" id="T1z-gC-0AD"/>
                     </connections>

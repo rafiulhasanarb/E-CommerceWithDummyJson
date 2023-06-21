@@ -30,7 +30,9 @@ class ProductCollectionViewCell: UICollectionViewCell {
         productTitleLabel.text = product.title
         stockLabel.text = "Stock: \(product.stock)"
         priceLabel.text = "Price: $\(product.price)"
-        discountPriceLabel.text = "Off: \(product.discountPercentage)%"
+        let discontPrice = Double(product.price) - ((Double(product.price) * product.discountPercentage) / 100)
+        let rounded = round(discontPrice * 100) / 100.0
+        discountPriceLabel.text = "Offer: $\(rounded)"
         rateButton.setTitle("\(product.rating)", for: .normal)
         guard let url = URL(string: product.thumbnail) else { return }
         productImageView.loadImage(from: url)

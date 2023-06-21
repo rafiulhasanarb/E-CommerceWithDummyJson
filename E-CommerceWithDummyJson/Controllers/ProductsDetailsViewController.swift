@@ -18,6 +18,8 @@ class ProductsDetailsViewController: UIViewController {
     @IBOutlet weak var ratingButtonView: UIButton!
     @IBOutlet weak var pricelbl: UILabel!
     @IBOutlet weak var discountlbl: UILabel!
+    @IBOutlet weak var afterDiscountlbl: UILabel!
+    @IBOutlet weak var savelbl: UILabel!
     @IBOutlet weak var brandlbl: UILabel!
     @IBOutlet weak var categorylbl: UILabel!
     @IBOutlet weak var stocklbl: UILabel!
@@ -56,9 +58,14 @@ class ProductsDetailsViewController: UIViewController {
         productTitlelbl.text = product.title
         productDescriplbl.text = product.description
         ratingButtonView.setTitle("\(product.rating)", for: .normal)
-        pricelbl.text = "Price: $\(product.price)"
-        discountlbl.text = "Off \(product.discountPercentage)%"
-        //discountPricelbl.text = "\(product.discountPercentage)%"
+        pricelbl.text = "Regular Price: $\(product.price)"
+        discountlbl.text = "Discount: \(product.discountPercentage)%"
+        let discontPrice = Double(product.price) - ((Double(product.price) * product.discountPercentage) / 100)
+        let rounded = round(discontPrice * 100) / 100.0
+        afterDiscountlbl.text = "After Discount: $ \(rounded)"
+        let saveAmount = (Double(product.price) * product.discountPercentage) / 100
+        let saveRounded = round(saveAmount * 100) / 100.0
+        savelbl.text = "Save: $\(saveRounded)"
         brandlbl.text = "Brand: \(product.brand)"
         categorylbl.text = "Category: \(product.category)"
         stocklbl.text = "Stock: \(product.stock)"
